@@ -36,6 +36,11 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'src' : path.resolve(__dirname, '../src'),
+      'assets' : path.resolve(__dirname, '../src/assets'),
+      'components': path.resolve(__dirname, '../src/components'),
+      // Semantic-UI
+      'semantic' : path.resolve(__dirname, '../node_modules/semantic-ui-css/semantic.min.js')
     }
   },
   module: {
@@ -74,6 +79,10 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /\.pug|\.jade/,
+        loaders: ['html-loader', 'pug-html-loader']
       }
     ]
   },

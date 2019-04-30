@@ -45,6 +45,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $ : 'jquery',
+      jQuery : 'jquery',
+      'window.jQuery': 'jquery',
+      'root.jQuery' : 'jquery',
+     // Semantic-UI
+     semantic : 'semantic-ui-css',
+     Semantic : 'semantic-ui-css',
+     'semantic-ui': 'semantic-ui-css'
+    }),
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }),
