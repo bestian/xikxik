@@ -1,24 +1,32 @@
 <template lang="jade">
   .hello
-    .ui.container.two.column.grid
-      .column
-        h1 拾詩氏
-        img(src = 'http://lorempixel.com/400/200/')
-        .ui.list
-          .item(v-for = "i in [1,2,3]")
-            h2 {{ p('a') }}{{ p('vt') }}{{ p('n') }}
-          .item
-            h2 {{ p('c') }}
-          .item(v-for = "i in [1,2,]")
-            h2 {{ p('a') }}{{ p('vt') }}{{ p('n') }}
-          .item
-            h2 {{ p('a') }}{{ p('vi') }}
-      .column
-        h1 小道小報
-        img(src = 'http://lorempixel.com/300/200/')
-        .ui.list
-          .item
-            h2 {{ p('a') }}昨天在{{ p('n') }}旁{{ p('vt') }}{{ p('a') }}，引來{{ p('num') }}人關注
+    .ui.container.grid
+      .two.column.row
+        .column.ui.segment
+          h1 拾詩氏
+          img(src = 'http://lorempixel.com/400/200/')
+          .ui.list
+            .item(v-for = "i in [1,2,3]")
+              h2 {{ p('a') }}{{ p('vt') }}{{ p('n') }}
+            .item
+              h2 {{ p('c') }}
+            .item(v-for = "i in [1,2,]")
+              h2 {{ p('a') }}{{ p('vt') }}{{ p('n') }}
+            .item
+              h2 {{ p('a') }}{{ p('vi') }}
+        .column.ui.segment
+          h1 小道小報
+          img(src = 'http://lorempixel.com/300/200/')
+          .ui.list
+            .item
+              h3 {{ p('per') }}昨天在{{ p('n') }}旁{{ p('vt') }}{{ p('a') }}，引來{{ p('num') }}人關注
+            .item
+              h3 {{ p('per') }}昨天竟然在{{ p('n') }}旁{{p('vi')}}了{{ p('num') }} 分鐘，大家都覺得很神奇
+      .one.column.row
+        .column
+          a.ui.button(onclick = "location.reload()") 再來！
+
+
 
 </template>
 
@@ -28,14 +36,17 @@ export default {
   data () {
     return {
       a: ['海鷗', '貓', '狗', '鯨魚', '水獺', '烏龜',
-        '地鼠'],
+        '地鼠', '蝸牛', '蝙蝠', '大象', '獅子'],
       n: ['天空', '大地', '河流', '大火', '風', '雷電', '高山',
         '湖泊', '浮雲', '山嵐', '大海', '石頭', '漩渦',
         '樹', '草', '花', '森林', '山脈', '海島', '平原', '沼澤'],
-      vi: ['站著', '坐著', '躺著', '靜靜地'],
+      vi: ['站著', '坐著', '躺著', '沉默', '停止', '持續轉動',
+        '睡著', '獨自漫歩'],
       vt: ['打著', '拍打', '載著', '走向', '舉著', '愛著'],
-      c: ['沒有人知道為什麼', '原來', '過了很久'],
-      num: [1, 2, 3, 5, 10, 100, 200, 1000]
+      c: ['沒有人知道為什麼', '原來', '過了很久', '時光飛逝'],
+      num: [1, 2, 3, 5, 10, 100, 200, 1000],
+      per: ['和尚', '道士', '外星人', '剌客', '魔法師',
+        '智者', '戰士', '修行人', '小偷']
     }
   },
   methods: {
