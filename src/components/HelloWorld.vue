@@ -37,11 +37,10 @@
               h3 昨天夜裡{{ p('per') }}和{{ p('per') }}在{{ p('pla') }}旁彼此{{p('vt')}}。他們相互{{p('vt')}}又{{p('vt')}}，最後決定一起{{p('vi')}}
       .one.column.row
         .column.ui.segment
-          InArticleAdsense(data-ad-client="ca-pub-7209910540592367" data-ad-slot="1234567890")
+          InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
       .one.column.row
         .column
           a.ui.huge.green.button(onclick = "location.reload()") 再來！
-
 </template>
 
 <script>
@@ -49,7 +48,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      a: ['海鷗', '貓', '狗', '鯨魚', '水獺', '烏龜',
+      a: ['海鷗', '小貓', '小狗', '鯨魚', '水獺', '烏龜', '狼', '獾',
         '地鼠', '蝸牛', '蝙蝠', '大象', '獅子'],
       n: ['天空', '大火', '風', '雷電',
         '浮雲', '山嵐', '大海', '石頭', '漩渦',
