@@ -1,37 +1,37 @@
 <template lang="jade">
   .hello
     .ui.container.grid
-      .two.column.row
-        .column.ui.segment
+      #poet.two.column.doubling.row
+        .six.wide.column.ui.teal.segment
           h1 拾詩氏
           img(src = 'http://lorempixel.com/400/200/')
           .ui.list
             .item(v-for = "i in [1,2]")
-              h2 {{ p('a') }}{{ p('vt') }}{{ p('a') }}
+              h2 {{ p('per') }}{{ p('vt') }}{{ p('a') }}
             .item
               h2 {{ p('c') }}
             .item(v-for = "i in [1,2,]")
-              h2 {{ p('a') }}{{ p('vt') }}{{ p('a') }}
+              h2 {{ p('per') }}{{ p('vt') }}{{ p('a') }}
             .item
               h2 {{ p('a') }}{{ p('vi') }}、{{ p('vi') }}
             .item
               h2 只剩下{{ p('pla') }}
-        .column.ui.segment
+        .ten.wide.column.left.aligned.ui.black.segment
           h1 小道小報
           img(src = 'http://lorempixel.com/300/200/')
-          .ui.divided.list
+          .ui.bulleted.divided.list
             .item
               h3 {{ p('per') }}昨天在{{ p('pla') }}旁{{ p('vt') }}{{ p('a') }}，引來{{ p('num') }}人關注
             .item
               h3 {{ p('per') }}和{{ p('per') }}昨天竟然在{{ p('pla') }}旁{{p('vi')}}了{{ p('num') }} 分鐘，大家都覺得很神奇
             .item
-              h3 昨天夜裡{{ p('per') }}和{{ p('per') }}在{{ p('pla') }}旁相互{{p('vt')}}。他們相互{{p('vt')}}又{{p('vt')}}，最後決定一起{{p('vi')}}
+              h3 昨天夜裡{{ p('per') }}和{{ p('per') }}在{{ p('pla') }}旁彼此{{p('vt')}}。他們相互{{p('vt')}}又{{p('vt')}}，最後決定一起{{p('vi')}}
             .item
               h3 {{ p('per') }}和{{ p('per') }}昨天在{{ p('pla') }}旁{{ p('vt') }}{{ p('a') }}，引來{{ p('num') }}人關注
             .item
               h3 {{ p('per') }}昨天竟然在{{ p('pla') }}旁{{p('vi')}}了{{ p('num') }} 分鐘，大家都覺得很神奇
             .item
-              h3 昨天夜裡{{ p('per') }}和{{ p('per') }}在{{ p('pla') }}旁相互{{p('vt')}}。他們相互{{p('vt')}}又{{p('vt')}}，最後決定一起{{p('vi')}}
+              h3 昨天夜裡{{ p('per') }}和{{ p('per') }}在{{ p('pla') }}旁彼此{{p('vt')}}。他們相互{{p('vt')}}又{{p('vt')}}，最後決定一起{{p('vi')}}
       .one.column.row
         .column
           a.ui.huge.green.button(onclick = "location.reload()") 再來！
@@ -74,18 +74,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
 a {
   color: #42b983;
+}
+
+#poet {
+  font-family: 'Microsoft JhengHei', 'DFKai-SB', 'PMingLiU', 'Heiti TC', 'LiHei Pro', 'BiauKai';
 }
 </style>
