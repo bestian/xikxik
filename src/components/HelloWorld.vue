@@ -1,6 +1,9 @@
 <template lang="jade">
   .hello
     .ui.container.grid
+      .one.column.row
+        .column
+          a.ui.huge.green.button(onclick = "location.reload()") 再來！
       #poet.two.column.doubling.row
         .six.wide.column.ui.teal.segment
           h1 拾詩氏
@@ -32,6 +35,9 @@
               h3 {{ p('per') }}昨天竟然在{{ p('pla') }}旁{{p('vi')}}了{{ p('num') }} 分鐘，大家都覺得很神奇
             .item
               h3 昨天夜裡{{ p('per') }}和{{ p('per') }}在{{ p('pla') }}旁彼此{{p('vt')}}。他們相互{{p('vt')}}又{{p('vt')}}，最後決定一起{{p('vi')}}
+      .one.column.row
+        .column.ui.segment
+          InArticleAdsense(data-ad-client="ca-pub-7209910540592367" data-ad-slot="1234567890")
       .one.column.row
         .column
           a.ui.huge.green.button(onclick = "location.reload()") 再來！

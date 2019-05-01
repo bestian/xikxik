@@ -17,8 +17,11 @@
     "jade": "^1.11.0",
     "jquery": "^3.4.0",
     "pug-html-loader": "^1.1.5",
+    "semantic-ui-css": "^2.4.1",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-google-adsense": "^1.5.1",
+    "vue-router": "^3.0.1",
+    "vue-script2": "^2.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
