@@ -7,7 +7,6 @@
       #poet.two.column.doubling.row
         .six.wide.column.ui.teal.segment
           h1 拾詩氏
-          InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
           .ui.list
             .item(v-for = "i in [1,2]")
               h2 {{ p('per') }}{{ p('vt') }}{{ p('a') }}
