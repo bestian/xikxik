@@ -8,10 +8,17 @@
               .ui.input
                 textarea(v-model = "myText" cols = "50" rows = "5")
                 a.ui.green.button(@click = "addNews(myList, myText)") +
-            hr
+      .ui.one.column.row
+        .column.ui.segment
+          .ui.horizontal.list
+            a.item(v-for = "k in Object.keys(xikxik)" @click = "myText += k") {{ k }}
+      .ui.one.column.row
+        .column.ui.segment
             .item(v-for = "o in newsList" v-if="o")
               h3 {{ o }}
-                a.ui.red.button(@click = "delNews(myList, o)") x
+                .ui.button.group
+                  a.ui.green.button(@click = "myText = o") 複製
+                  a.ui.red.button(@click = "delNews(myList, o)") 刪除
       .ui.one.column.row
         .column.ui.segment
           a.ui.huge.teal.button(@click="resetNews()") 重設!!
@@ -26,7 +33,7 @@ export default {
       myText: ''
     }
   },
-  props: ['newsList'],
+  props: ['xikxik', 'newsList'],
   methods: {
     addNews: function (n, i) {
       this.$emit('addNews', n, i)
