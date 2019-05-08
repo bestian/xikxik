@@ -64,8 +64,8 @@ export default {
       }
       var good = true
       for (var i$ = 0; i$ < list.length; i$++) {
-        var j = list[i]
-        if (str.indexOf(j) > -1) {
+        var j = list[i$]
+        if (ans.indexOf(j) > -1) {
           good = false
         }
       }
