@@ -12,32 +12,22 @@
             .item(v-for = "i in [1,2]")
               h2 {{ p('per') }}{{ p('peaceVT') }}{{ p('natureO') }}
             .item
-              h2 {{ p('a') }}{{ p('vi') }}、{{ p('vi') }}
+              h2 {{ p('animal') }}{{ p('vi') }}、{{ p('vi') }}
             .item
-              h2 {{ p('c') }}
+              h2 {{ p('blah') }}
             .item(v-for = "i in [1,2,]")
               h2 {{ p('natureS') }}{{ p('vt') }}{{ p('natureO') }}
             .item
-              h2 {{ p('a') }}{{ p('peaceVI') }}、{{ p('peaceVI') }}
+              h2 {{ p('animal') }}{{ p('peaceVI') }}、{{ p('peaceVI') }}
             .item
-              h2 只剩下{{ p('pla') }}
+              h2 只剩下{{ p('place') }}
         .ten.wide.column.left.aligned.ui.black.segment
           h1 小道小報 {{ (new Date().getYear()) + '年' + (new Date().getMonth()) + '月' + (new Date().getDate()) + '日'}}
           InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
           h2 (本報訊)
           .ui.bulleted.celled.list
-            .item
-              h3 昨日{{ p('per') }}被指控在{{ p('pla') }}放置{{ p('adj') }}{{ p('object') }}，他鄭重否認。告密者{{ p('per') }}表示，他已有充份證據，將於{{ p('num') }}日後公諸於世。
-            .item
-              h3 {{ p('per') }}昨天在{{ p('pla') }}旁{{ p('vt') }}{{ p('a') }}，引來{{ p('num') }}人關注
-            .item
-              h3 {{ p('per') }}和{{ p('per') }}昨天竟然在{{ p('pla') }}旁{{p('vi')}}了{{ p('num') }} 分鐘，大家都覺得很神奇
-            .item
-              h3 昨天{{ p('per') }}和{{ p('per') }}在{{ p('pla') }}旁彼此{{ p('vt') }}。他們相互{{ p('vt') }}了{{ p('num') }}分鐘，最後決定一起{{p('vi')}}
-            .item
-              h3 最近避不露面的{{ p('per') }}終於出現了，他對外表示，連續{{ p('num') }}日他都在{{ p('pla') }}{{ p('vi') }}
-            .item
-              h3 昨日{{ p('per') }}宣稱，他和{{ p('per') }}在遺傳上是接近的。對方表示，這種說法純粹是為了要繼承{{ p('adj') }}{{ p('object')}}。
+            .item(v-for = "n in newsList")
+              h3 {{ parse(n) }}
       .one.column.row
         .column.ui.segment
           InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
@@ -56,12 +46,34 @@ export default {
     return {
     }
   },
-  props: ['xikxik'],
+  props: ['xikxik', 'newsList'],
   methods: {
     p: function (k) {
       var list = this.xikxik[k]
       var r = Math.floor(Math.random() * list.length)
       return list[r]
+    },
+    parse: function (str) {
+      var ans = str
+      var list = Object.keys(this.xikxik).sort(function (a, b) { return b.length - a.length })
+      for (var i = 0; i < list.length; i++) {
+        var k = list[i]
+        if (str.indexOf(k) > -1) {
+          ans = ans.replace(k, this.p(k))
+        }
+      }
+      var good = true
+      for (var i$ = 0; i$ < list.length; i$++) {
+        var j = list[i]
+        if (str.indexOf(j) > -1) {
+          good = false
+        }
+      }
+      if (good) {
+        return ans
+      } else {
+        return this.parse(ans)
+      }
     }
   }
 }

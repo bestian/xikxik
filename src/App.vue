@@ -7,13 +7,16 @@
       router-link.item(to = "/custom")
         i.pencil.alternate.icon
         | 自訂元素
+      router-link.item(to = "/editnews")
+        i.copy.icon
+        | 自訂小報
       .right.menu
         a.item(href="https://github.com/bestian/xikxik/" target="_blank")
           i.github.icon
           | 專案網址
         .item
           iframe(src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fxikxik.bestian.tw&layout=button_count&size=small&appId=485195848253155&width=70&height=20" width="70" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
-    router-view(:xikxik = "$localStorage.xikxik", @add="add", @del = "del", @reset = "reset")
+    router-view(:xikxik = "$localStorage.xikxik", :newsList = "$localStorage.newsList", @add="add", @del = "del", @reset = "reset", @addNews="addNews", @delNews = "delNews", @resetNews = "resetNews")
 </template>
 
 <script>
@@ -151,17 +154,29 @@ var dat = {
     '茅坑', '木屋', '稻田', '碗']
 }
 
+var news = [
+  '昨日per被指控在place放置adjobject，他鄭重否認。告密者per表示，他已有充份證據，將於num日後公諸於世。',
+  '昨日per宣稱，他和per在遺傳上是接近的。對方表示，這種說法純粹是為了要繼承adjobject。',
+  '最近避不露面的per終於出現了，他對外表示，連續num日他都在placevi',
+  '昨天per和per在place旁彼此vt。他們相互vt了num分鐘，最後決定一起vi',
+  'per和per昨天竟然在place旁violenceVI了num分鐘，大家都覺得很神奇',
+  'per昨天在place旁vtanimal，引來num人關注'
+]
+
 export default {
   name: 'App',
   localStorage: {
     xikxik: {
       type: Object,
       default: dat
+    },
+    newsList: {
+      type: Object,
+      default: news
     }
   },
   data () {
     return {
-
     }
   },
   methods: {
@@ -179,6 +194,22 @@ export default {
     },
     reset: function () {
       this.$localStorage.set('xikxik', dat)
+      this.$forceUpdate()
+    },
+    addNews: function (n, i) {
+      var newsList = this.$localStorage.newsList
+      newsList.push(i)
+      this.$localStorage.set('newsList', newsList)
+      this.$forceUpdate()
+    },
+    delNews: function (n, i) {
+      var newsList = this.$localStorage.newsList
+      newsList = newsList.filter(function (x) { return x !== i })
+      this.$localStorage.set('newsList', newsList)
+      this.$forceUpdate()
+    },
+    resetNews: function () {
+      this.$localStorage.set('newsList', news)
       this.$forceUpdate()
     }
   },
