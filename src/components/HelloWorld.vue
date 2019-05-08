@@ -25,7 +25,7 @@
           h1 小道小報 {{ (new Date().getYear()) + '年' + (new Date().getMonth()) + '月' + (new Date().getDate()) + '日'}}
           InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
           h2 (本報訊)
-          .ui.bulleted.divided.list
+          .ui.bulleted.celled.list
             .item
               h3 昨日{{ p('per') }}被指控在{{ p('pla') }}放置{{ p('adj') }}{{ p('object') }}，他鄭重否認。告密者{{ p('per') }}表示，他已有充份證據，將於{{ p('num') }}日後公諸於世。
             .item
