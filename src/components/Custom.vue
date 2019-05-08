@@ -6,7 +6,7 @@
           .ui.horizontal.list(v-for = "k in Object.keys(xikxik)")
             .item
               h3
-                a.ui.blue.big.button(@click = "myList = k") {{ k }}
+                a.ui.big.button(@click = "myList = k", :class = "[myList !== k ? 'blue' : 'green']") {{ k }}
         .column.ui.segment
           .ui.horizontal.list
             .item.ui.form
