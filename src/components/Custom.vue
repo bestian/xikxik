@@ -17,6 +17,9 @@
             .item(v-for = "o in xikxik[myList]" v-if="o")
               h3 {{ o }}
                 a.ui.red.button(@click = "del(myList, o)") x
+      .ui.one.column.row
+        .column.ui.segment
+          a.ui.huge.teal.button(@click="reset()") 重設!!
 
 </template>
 
@@ -26,7 +29,7 @@ export default {
   data () {
     return {
       myText: '',
-      myList: 'a'
+      myList: 'animal'
     }
   },
   props: ['xikxik'],
@@ -37,6 +40,9 @@ export default {
     },
     del: function (n, i) {
       this.$emit('del', n, i)
+    },
+    reset: function () {
+      this.$emit('reset')
     }
   }
 }
