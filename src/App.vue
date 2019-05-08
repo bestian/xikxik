@@ -7,6 +7,9 @@
       router-link.item(to = "/custom")
         i.pencil.alternate.icon
         | 自訂元素
+      router-link.item(to = "/editPoet")
+        i.random.icon
+        | 自訂小詩
       router-link.item(to = "/editnews")
         i.copy.icon
         | 自訂小報
@@ -16,7 +19,7 @@
           | 專案網址
         .item
           iframe(src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fxikxik.bestian.tw&layout=button_count&size=small&appId=485195848253155&width=70&height=20" width="70" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
-    router-view(:xikxik = "$localStorage.xikxik", :newsList = "$localStorage.newsList", @add="add", @del = "del", @reset = "reset", @addNews="addNews", @delNews = "delNews", @resetNews = "resetNews")
+    router-view(:xikxik = "$localStorage.xikxik", :newsList = "$localStorage.newsList", :poet = "$localStorage.poet", @add="add", @del = "del", @reset = "reset", @addNews="addNews", @delNews = "delNews", @resetNews = "resetNews", @addPoet="addPoet", @delPoet = "delPoet", @resetPoet = "resetPoet")
 </template>
 
 <script>
@@ -163,6 +166,18 @@ var news = [
   'per昨天在place旁vtanimal，引來num人關注'
 ]
 
+var poetry = [
+  'blah',
+  'perpeaceVTnatureO',
+  'perpeaceVTnatureO',
+  'animalvi、vi',
+  'blah',
+  'natureSvtnatureO',
+  'natureSvtnatureO',
+  'animalpeaceVI、peaceVI',
+  '只剩下place'
+]
+
 export default {
   name: 'App',
   localStorage: {
@@ -173,6 +188,10 @@ export default {
     newsList: {
       type: Object,
       default: news
+    },
+    poet: {
+      type: Object,
+      default: poetry
     }
   },
   data () {
@@ -181,35 +200,45 @@ export default {
   },
   methods: {
     add: function (n, i) {
-      var xikxik = this.$localStorage.xikxik
-      xikxik[n].push(i)
-      this.$localStorage.set('xikxik', xikxik)
-      this.$forceUpdate()
+      this.addItem('xikxik', n, i)
     },
     del: function (n, i) {
-      var xikxik = this.$localStorage.xikxik
-      xikxik[n] = xikxik[n].filter(function (x) { return x !== i })
-      this.$localStorage.set('xikxik', xikxik)
-      this.$forceUpdate()
+      this.delItem('xikxik', n, i)
     },
     reset: function () {
       this.$localStorage.set('xikxik', dat)
       this.$forceUpdate()
     },
     addNews: function (n, i) {
-      var newsList = this.$localStorage.newsList
-      newsList.push(i)
-      this.$localStorage.set('newsList', newsList)
-      this.$forceUpdate()
+      this.addItem('newsList', n, i)
     },
     delNews: function (n, i) {
-      var newsList = this.$localStorage.newsList
-      newsList = newsList.filter(function (x) { return x !== i })
-      this.$localStorage.set('newsList', newsList)
-      this.$forceUpdate()
+      this.delItem('newsList', n, i)
     },
     resetNews: function () {
       this.$localStorage.set('newsList', news)
+      this.$forceUpdate()
+    },
+    addPoet: function (n, i) {
+      this.addItem('poet', n, i)
+    },
+    delPoet: function (n, i) {
+      this.delItem('poet', n, i)
+    },
+    resetPoet: function () {
+      this.$localStorage.set('poet', poetry)
+      this.$forceUpdate()
+    },
+    addItem: function (t, n, i) {
+      var p = this.$localStorage[t]
+      p.push(i)
+      this.$localStorage.set(t, p)
+      this.$forceUpdate()
+    },
+    delItem: function (t, n, i) {
+      var l = this.$localStorage[t]
+      l = l.filter(function (x) { return x !== i })
+      this.$localStorage.set(t, l)
       this.$forceUpdate()
     }
   },

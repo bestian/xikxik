@@ -9,18 +9,8 @@
           h1 拾詩氏
           hr
           .ui.list
-            .item(v-for = "i in [1,2]")
-              h2 {{ p('per') }}{{ p('peaceVT') }}{{ p('natureO') }}
-            .item
-              h2 {{ p('animal') }}{{ p('vi') }}、{{ p('vi') }}
-            .item
-              h2 {{ p('blah') }}
-            .item(v-for = "i in [1,2,]")
-              h2 {{ p('natureS') }}{{ p('vt') }}{{ p('natureO') }}
-            .item
-              h2 {{ p('animal') }}{{ p('peaceVI') }}、{{ p('peaceVI') }}
-            .item
-              h2 只剩下{{ p('place') }}
+            .item(v-for = "p in poet")
+              h3 {{ parse(p) }}
         .ten.wide.column.left.aligned.ui.black.segment
           h1 小道小報 {{ (new Date().getYear()) + '年' + (new Date().getMonth()) + '月' + (new Date().getDate()) + '日'}}
           InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
@@ -46,7 +36,7 @@ export default {
     return {
     }
   },
-  props: ['xikxik', 'newsList'],
+  props: ['xikxik', 'newsList', 'poet'],
   methods: {
     p: function (k) {
       var list = this.xikxik[k]
