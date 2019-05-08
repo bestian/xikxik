@@ -8,6 +8,9 @@
         i.pencil.alternate.icon
         | 自訂元素
       .right.menu
+        a.item(href="https://github.com/bestian/xikxik/" target="_blank")
+          i.github.icon
+          | 專案網址
         .item
           iframe(src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fxikxik.bestian.tw&layout=button_count&size=small&appId=485195848253155&width=70&height=20" width="70" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
     router-view(:xikxik = "$localStorage.xikxik", @add="add", @del = "del")
