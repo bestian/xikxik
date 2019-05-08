@@ -8,6 +8,10 @@ import '../node_modules/semantic-ui-css/semantic.min.css'
 
 import Ads from 'vue-google-adsense'
 
+import VueLocalStorage from 'vue-localstorage'
+
+Vue.use(VueLocalStorage)
+
 Vue.use(require('vue-script2'))
 
 Vue.use(Ads.Adsense)
