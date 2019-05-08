@@ -12,7 +12,7 @@
             .item(v-for = "p in poet")
               h3 {{ parse(p) }}
         .ten.wide.column.left.aligned.ui.black.segment
-          h1 小道小報 {{ (new Date().getYear()) + '年' + (new Date().getMonth()) + '月' + (new Date().getDate()) + '日'}}
+          h1 小道小報 {{ today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() }}
           InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
           h2 (本報訊)
           .ui.bulleted.celled.list
@@ -34,6 +34,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+      today: new Date()
     }
   },
   props: ['xikxik', 'newsList', 'poet'],
