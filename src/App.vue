@@ -13,6 +13,9 @@
       router-link.item(to = "/editnews")
         i.copy.icon
         | 自訂小報
+      router-link.item(to = "/zoo")
+        i.universal.access.icon
+        | 動物園
       .right.menu
         a.item(href="https://github.com/bestian/xikxik/" target="_blank")
           i.github.icon
