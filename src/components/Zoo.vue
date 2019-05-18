@@ -7,7 +7,8 @@
     .ui.container.doubling.four.cards
       .ui.card(v-for="i in rand(12)")
         .ui.image
-          img(:src="'http://lorempixel.com/400/200/animals/'+i")
+          a(href = "http://lorempixel.com/" target="_blank")
+            img(:src="'http://lorempixel.com/400/200/animals/'")
     .ui.container.grid
       .one.column.row
         .column.ui.segment
@@ -30,7 +31,7 @@ export default {
     rand: function (n) {
       var ans = []
       for (var i = 1; i <= n; i++) {
-        ans.push('')
+        ans.push(i)
       }
       ans = ans.sort(function (a, b) { return Math.random() - 0.5 })
       return ans
