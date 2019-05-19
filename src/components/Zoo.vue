@@ -12,7 +12,7 @@
       .ui.card(v-for="i in [k, l, m, n]")
         .ui.image
           a(href = "http://lorempixel.com/" target="_blank")
-            img(:src="'http://lorempixel.com/400/300/'+ myT.v +'/' + i")
+            img(:src="'http://lorempixel.com/400/200/'+ myT.v +'/' + i")
     .ui.container.grid
       .one.column.row
         .column.ui.segment
