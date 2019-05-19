@@ -15,7 +15,7 @@
         | 自訂小報
       router-link.item(to = "/zoo")
         i.universal.access.icon
-        | 動物園
+        | 隨機圖
       .right.menu
         a.item(href="https://github.com/bestian/xikxik/" target="_blank")
           i.github.icon
