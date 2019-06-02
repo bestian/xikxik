@@ -30,3 +30,23 @@ selenium-debug.log
 /cordova-src/platforms
 /cordova-src/plugins
 /public/cordova.js
+
+# Cordova
+/.//platforms
+/.//plugins
+/public/cordova.js
+
+# Cordova
+/.//platforms
+/.//plugins
+/public/cordova.js
+
+# Cordova
+/..//platforms
+/..//plugins
+/public/cordova.js
+
+# Cordova
+/src-cordova/platforms
+/src-cordova/plugins
+/public/cordova.js
