@@ -28,6 +28,14 @@
 <script>
 
 var dat = {
+  light: [
+    '任何事情發生時都不需要害怕', 
+    '只要是完整的，就沒有什麼可以被剝奪。',
+    '神聖的秩序是無所不能。',
+    '孩子，你要無畏無懼。',
+    '源頭是很大的生命。',
+    '秩序就是愛'
+  ],
   animal: ['海鷗', '小貓', '小狗', '鯨魚', '水獺', '烏龜', '狼', '獾',
     '地鼠', '蝸牛', '蝙蝠', '大象', '獅子'],
   noun: ['天空', '大火', '風', '雷電',
@@ -170,15 +178,15 @@ var news = [
 ]
 
 var poetry = [
-  'blah',
+  'light',
   'perpeaceVTnatureO',
   'perpeaceVTnatureO',
   'animalvi、vi',
-  'blah',
+  'light',
   'natureSvtnatureO',
   'natureSvtnatureO',
   'animalpeaceVI、peaceVI',
-  '只剩下place'
+  'light'
 ]
 
 export default {
