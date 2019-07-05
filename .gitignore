@@ -7,6 +7,7 @@ yarn-error.log*
 /test/unit/coverage/
 /test/e2e/reports/
 selenium-debug.log
+*.icloud
 
 # Editor directories and files
 .idea
@@ -15,3 +16,38 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+
+# Cordova
+/src-cordova/platforms
+/src-cordova/plugins
+/public/cordova.js
+
+# Cordova
+/src-cordova/platforms
+/src-cordova/plugins
+/public/cordova.js
+
+# Cordova
+/cordova-src/platforms
+/cordova-src/plugins
+/public/cordova.js
+
+# Cordova
+/.//platforms
+/.//plugins
+/public/cordova.js
+
+# Cordova
+/.//platforms
+/.//plugins
+/public/cordova.js
+
+# Cordova
+/..//platforms
+/..//plugins
+/public/cordova.js
+
+# Cordova
+/src-cordova/platforms
+/src-cordova/plugins
+/public/cordova.js
