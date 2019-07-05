@@ -10,14 +10,14 @@
           img(src="http://lorempixel.com/400/200/animals/")
           hr
           .ui.list
-            .item(v-for = "p in poet")
+            .item(v-for = "p in poet" v-bind:key = "p")
               h2 {{ parse(p) }}
         .ten.wide.column.left.aligned.ui.black.segment
           h1 小道小報 {{ today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() }}
           InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
           h2 (本報訊)
           .ui.bulleted.celled.list
-            .item(v-for = "n in newsList")
+            .item(v-for = "n in newsList" v-bind:key = "n")
               h3 {{ parse(n) }}
       .one.column.row
         .column.ui.segment

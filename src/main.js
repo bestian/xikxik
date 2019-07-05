@@ -10,7 +10,7 @@ import Ads from 'vue-google-adsense'
 
 import VueLocalStorage from 'vue-localstorage'
 
-Vue.use(VueLocalStorage)
+Vue.use(Vu1eLocalStorage)
 
 Vue.use(require('vue-script2'))
 
