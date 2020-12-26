@@ -218,7 +218,10 @@ export default {
     },
     addItem: function (t, n, i) {
       var p = this.$localStorage.get(t)
-      p[n] = p[n].push(i)
+      console.log(p)
+      console.log(p[n])
+      console.log(i)
+      p[n].push(i)
       this.$localStorage.set(t, p)
       this.$forceUpdate()
     },
