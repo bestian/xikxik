@@ -217,14 +217,14 @@ export default {
       this.$forceUpdate()
     },
     addItem: function (t, n, i) {
-      var p = this.$localStorage[t]
-      p.push(i)
+      var p = this.$localStorage.get(t)
+      p[n] = p[n].push(i)
       this.$localStorage.set(t, p)
       this.$forceUpdate()
     },
     delItem: function (t, n, i) {
       var l = this.$localStorage[t]
-      l = l.filter(function (x) { return x !== i })
+      l[n] = l[n].filter(function (x) { return x !== i })
       this.$localStorage.set(t, l)
       this.$forceUpdate()
     }
