@@ -97,7 +97,7 @@ var dat = {
     '魔術師', '小叮噹',
     '武林高手',
     '數學家',
-    '幫派份子',
+    '幫派份子', '苦力怕',
     '微生物',
     '小太陽', '齊天大聖', '空悟孫', '悟空孫',
     '孫悟空', '豬八戒', '沙僧', '唐三藏', '如來佛', '觀音菩薩',
@@ -217,14 +217,17 @@ export default {
       this.$forceUpdate()
     },
     addItem: function (t, n, i) {
-      var p = this.$localStorage[t]
-      p.push(i)
+      var p = this.$localStorage.get(t)
+      console.log(p)
+      console.log(p[n])
+      console.log(i)
+      p[n].push(i)
       this.$localStorage.set(t, p)
       this.$forceUpdate()
     },
     delItem: function (t, n, i) {
       var l = this.$localStorage[t]
-      l = l.filter(function (x) { return x !== i })
+      l[n] = l[n].filter(function (x) { return x !== i })
       this.$localStorage.set(t, l)
       this.$forceUpdate()
     }
