@@ -1,45 +1,55 @@
 <template lang="jade">
   .hello
     .ui.container.grid
-      .one.column.row
-        .column
-          a.ui.huge.green.button(onclick = "location.reload()") 再來！
       #poet.two.column.doubling.row
         .six.wide.column.ui.teal.segment
           h1 拾詩氏
           img(src="http://lorempixel.com/400/200/animals/")
           hr
           .ui.list
-            .item(v-for = "p in poet" v-bind:key = "p")
-              h2 {{ parse(p) }}
+            .item(v-for = "(p, idx) in poet" v-bind:key = "p + idx")
+              h2 {{ s(parse(p)) }}
         .ten.wide.column.left.aligned.ui.black.segment
           h1 小道小報 {{ today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() }}
           //InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
           h2 (本報訊)
           .ui.bulleted.celled.list
             .item(v-for = "n in newsList" v-bind:key = "n")
-              h3 {{ parse(n) }}
+              h3 {{ s(parse(n)) }}
       //.one.column.row
         .column.ui.segment
           InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
       .one.column.row
         .column
-          a.ui.huge.green.button(onclick = "location.reload()") 再來！
+          a.ui.huge.green.button(@click = "reseter()") 再來！
       .one.column.row
         .column
           .fb-comments(data-href="http://xikxik.bestian.tw" data-width="" data-numposts="5")
 </template>
 
 <script>
+import {sify} from 'chinese-conv'
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      today: new Date()
+      today: new Date(),
     }
   },
-  props: ['xikxik', 'newsList', 'poet'],
+  props: ['xikxik', 'newsList', 'poet', 'si'],
   methods: {
+    reseter: function () {
+      console.log('r')
+      this.$emit('reseter')
+    },
+    s: function (t) {
+      if (this.si) {
+        return sify(t)
+      } else {
+        return t
+      }
+    },
     p: function (k) {
       var list = this.xikxik[k]
       var r = Math.floor(Math.random() * list.length)

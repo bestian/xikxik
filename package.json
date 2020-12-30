@@ -23,6 +23,7 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage"
   },
   "dependencies": {
+    "chinese-conv": "^1.0.1",
     "jade": "^1.11.0",
     "jquery": "^3.4.0",
     "pug-html-loader": "^1.1.5",

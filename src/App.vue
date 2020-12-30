@@ -1,8 +1,16 @@
 <template lang="jade">
   #app
-    .ui.labeled.icon.menu
+    .ui.menu.thin-only
       router-link.item(to = "/")
-        i.home.icon
+        i.globe.icon
+      router-link.item(to = "/custom")
+        i.pencil.alternate.icon
+      .right.menu
+        a.item(href="https://github.com/bestian/xikxik/" target="_blank")
+          i.github.icon
+    .ui.labeled.icon.menu.fat-only
+      router-link.item(to = "/")
+        i.globe.icon
         | 首頁
       router-link.item(to = "/custom")
         i.pencil.alternate.icon
@@ -17,12 +25,18 @@
         i.universal.access.icon
         | 隨機圖
       .right.menu
-        a.item(href="https://github.com/bestian/xikxik/" target="_blank")
+        a.item(v-if = "!si", @click="si = true")
+          i.edit.icon
+          | 簡体
+        a.item(v-else, @click="si = false")
+          i.edit.icon
+          | 正體
+        a.item(href="https://github.com/bestian/xikxik/", target="_blank")
           i.github.icon
           | 專案網址
         .item
           iframe(src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fxikxik.bestian.tw&layout=button_count&size=small&appId=485195848253155&width=70&height=20" width="70" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
-    router-view(:xikxik = "$localStorage.xikxik", :newsList = "$localStorage.newsList", :poet = "$localStorage.poet", @add="add", @del = "del", @reset = "reset", @addNews="addNews", @delNews = "delNews", @resetNews = "resetNews", @addPoet="addPoet", @delPoet = "delPoet", @resetPoet = "resetPoet")
+    router-view(:si="si", :xikxik = "$localStorage.xikxik", :newsList = "$localStorage.newsList", :poet = "$localStorage.poet", @add="add", @del = "del", @reset = "reset", @addNews="addNews", @delNews = "delNews", @resetNews = "resetNews", @addPoet="addPoet", @delPoet = "delPoet", @resetPoet = "resetPoet", @reseter="reseter")
 </template>
 
 <script>
@@ -183,9 +197,14 @@ export default {
   },
   data () {
     return {
+      si: false
     }
   },
   methods: {
+    reseter: function () {
+      console.log('r')
+      this.$router.go()
+    },
     add: function (n, i) {
       this.addItem('xikxik', n, i)
     },
@@ -226,14 +245,26 @@ export default {
       this.$forceUpdate()
     },
     delItem: function (t, n, i) {
-      var l = this.$localStorage[t]
+      var l = this.$localStorage.get(t)
       l[n] = l[n].filter(function (x) { return x !== i })
       this.$localStorage.set(t, l)
       this.$forceUpdate()
     }
   },
   mounted () {
-  }
+    var si = this.$localStorage.get('si')
+    if (si) {
+      this.si = true
+    }
+    if (navigator.language === 'zh-cn' || navigator.language === 'zh-CN' || navigator.userLanguage === 'zh-cn') {
+      this.si = true
+    }
+  },
+  watch: {
+    si: function (newSi, oldSi) {
+      this.$localStorage.set('si', newSi)
+    }
+  },
 }
 </script>
 
@@ -253,4 +284,17 @@ export default {
 a, button {
   cursor: pointer;
 }
+
+@media screen and (max-width: 420px) {
+  .fat-only {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 421px) {
+  .thin-only {
+    display: none !important;
+  }
+}
+
 </style>
