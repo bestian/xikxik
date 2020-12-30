@@ -34,7 +34,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      today: new Date(),
+      today: new Date()
     }
   },
   props: ['xikxik', 'newsList', 'poet', 'si'],
