@@ -21,9 +21,6 @@
       router-link.item(to = "/editnews")
         i.copy.icon
         | 自訂小報
-      router-link.item(to = "/zoo")
-        i.universal.access.icon
-        | 隨機圖
       .right.menu
         a.item(v-if = "!si", @click="si = true")
           i.edit.icon
