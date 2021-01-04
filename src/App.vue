@@ -34,9 +34,11 @@
         .item
           iframe(src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fxikxik.bestian.tw&layout=button_count&size=small&appId=485195848253155&width=70&height=20" width="70" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
     router-view(:si="si", :xikxik = "$localStorage.xikxik", :newsList = "$localStorage.newsList", :poet = "$localStorage.poet", @add="add", @del = "del", @reset = "reset", @addNews="addNews", @delNews = "delNews", @resetNews = "resetNews", @addPoet="addPoet", @delPoet = "delPoet", @resetPoet = "resetPoet", @reseter="reseter")
+    ad
 </template>
 
 <script>
+import Ad from './components/Ad-Be'
 
 var dat = {
   light: [
@@ -178,6 +180,7 @@ var poetry = [
 
 export default {
   name: 'App',
+  components: { Ad },
   localStorage: {
     xikxik: {
       type: Object,
