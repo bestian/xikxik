@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .hello
     .ui.container.grid
       #poet.two.column.doubling.row

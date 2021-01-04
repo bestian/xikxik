@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .hello
     .ui.grid
       .ui.one.column.row

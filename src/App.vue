@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   #app
     .ui.menu.thin-only
       router-link.item(to = "/")
@@ -253,15 +253,18 @@ export default {
   },
   mounted () {
     var si = this.$localStorage.get('si')
-    if (si) {
+    if (si === true) {
       this.si = true
+    } else {
+      this.si = false
     }
     if (navigator.language === 'zh-cn' || navigator.language === 'zh-CN' || navigator.userLanguage === 'zh-cn') {
       this.si = true
     }
   },
   watch: {
-    si: function (newSi, oldSi) {
+    si: function (newSi) {
+      console.log(newSi)
       this.$localStorage.set('si', newSi)
     }
   }
