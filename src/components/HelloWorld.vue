@@ -4,7 +4,7 @@
       #poet.two.column.doubling.row
         .six.wide.column.ui.teal.segment
           h1 拾詩氏
-          img(src="https://picsum.photos/400/200")
+          img(src="https://picsum.photos/400/200", alt="Lorem")
           hr
           .ui.list
             .item(v-for = "(p, idx) in poet" v-bind:key = "p + idx")
