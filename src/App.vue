@@ -6,7 +6,7 @@
       router-link.item(to = "/custom")
         i.pencil.alternate.icon
       .right.menu
-        a.item(href="https://github.com/bestian/xikxik/" target="_blank")
+        a.item(href="https://github.com/bestian/xikxik/" target="_blank", rel="noopener noreferrer")
           i.github.icon
     .ui.labeled.icon.menu.fat-only
       router-link.item(to = "/")
@@ -31,7 +31,7 @@
         a.item(v-else, @click="si = false")
           i.edit.icon
           | 正體
-        a.item(href="https://github.com/bestian/xikxik/", target="_blank")
+        a.item(href="https://github.com/bestian/xikxik/", target="_blank", rel="noopener noreferrer")
           i.github.icon
           | 專案網址
         .item
