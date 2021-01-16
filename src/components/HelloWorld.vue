@@ -2,7 +2,7 @@
   .hello
     .ui.container.grid
       #poet.two.column.doubling.row
-        .six.wide.column.ui.teal.segment
+        .six.wide.column.ui.blue.segment
           h1 拾詩氏
           img(src="https://picsum.photos/400/200", alt="Lorem")
           hr
@@ -21,7 +21,7 @@
           InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
       .one.column.row
         .column
-          a.ui.huge.green.button(@click = "reseter()") 再來！
+          a.ui.huge.black.button(@click = "reseter()") 再來！
       .one.column.row
         .column
           .fb-comments(data-href="http://xikxik.bestian.tw" data-width="" data-numposts="5")
@@ -85,6 +85,10 @@ export default {
 <style scoped>
 a {
   color: #42b983;
+}
+
+.ui.grid>.blue.column, .ui.grid>.blue.row, .ui.grid>.row>.blue.column {
+  background-color: #009 !important;
 }
 
 #poet {
