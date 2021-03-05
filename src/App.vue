@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    .ui.menu.thin-only
+    .ui.fixed.top.menu.thin-only
       router-link.item(to = "/")
         i.globe.icon
       router-link.item(to = "/custom")
@@ -8,7 +8,7 @@
       .right.menu
         a.item(href="https://github.com/bestian/xikxik/" target="_blank", rel="noopener noreferrer")
           i.github.icon
-    .ui.labeled.icon.menu.fat-only
+    .ui.fixed.top.labeled.icon.menu.fat-only
       router-link.item(to = "/")
         i.globe.icon
         | 首頁
@@ -33,7 +33,8 @@
           | 專案網址
         .item
           iframe(src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fxikxik.bestian.tw&layout=button_count&size=small&appId=485195848253155&width=70&height=20" width="70" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
-    router-view(:si="si", :xikxik = "$localStorage.xikxik", :newsList = "$localStorage.newsList", :poet = "$localStorage.poet", @add="add", @del = "del", @reset = "reset", @addNews="addNews", @delNews = "delNews", @resetNews = "resetNews", @addPoet="addPoet", @delPoet = "delPoet", @resetPoet = "resetPoet", @reseter="reseter")
+    #main
+      router-view(:si="si", :xikxik = "$localStorage.xikxik", :newsList = "$localStorage.newsList", :poet = "$localStorage.poet", @add="add", @del = "del", @reset = "reset", @addNews="addNews", @delNews = "delNews", @resetNews = "resetNews", @addPoet="addPoet", @delPoet = "delPoet", @resetPoet = "resetPoet", @reseter="reseter")
     ad
 </template>
 
@@ -299,6 +300,10 @@ a, button {
   .thin-only {
     display: none !important;
   }
+}
+
+#main {
+  margin-top: 80px;
 }
 
 </style>
