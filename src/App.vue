@@ -18,7 +18,7 @@
       router-link.item(to = "/editPoet")
         i.random.icon
         | 自訂小詩
-      router-link.item(to = "/editnews")
+      // router-link.item(to = "/editnews")
         i.copy.icon
         | 自訂小報
       .right.menu
