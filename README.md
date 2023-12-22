@@ -2,7 +2,7 @@
 
 ## Project setup
 ```
-npm install
+sudo npm install --legacy-peer-deps
 ```
 
 ### Compiles and hot-reloads for development
@@ -10,9 +10,9 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compiles and minifies for production???
 ```
-npm run build
+npm run build --legacy-peer-deps
 ```
 
 ### Lints and fixes files
