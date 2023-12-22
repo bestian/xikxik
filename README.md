@@ -10,9 +10,9 @@ sudo npm install --legacy-peer-deps
 npm run serve
 ```
 
-### Compiles and minifies for production???
+### Compiles and minifies for production
 ```
-sudo npm run build --legacy-peer-deps
+sudo npm run build
 ```
 
 ### Lints and fixes files
