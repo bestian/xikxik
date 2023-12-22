@@ -2,11 +2,11 @@ module.exports = {
   runtimeCompiler: true,
   css: { sourceMap: true },
   productionSourceMap: true,
-  /* pwa: {
+  pwa: {
     workboxOptions: {
       exclude: [/\.gitkeep/]
     }
-  }, */
+  },
   publicPath: process.env.NODE_ENV === 'production'
     ? '/'
     : '/'

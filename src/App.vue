@@ -15,7 +15,7 @@
       router-link.item(to = "/custom")
         i.pencil.alternate.icon
         | 自訂元素
-      router-link.item(to = "/editPoet")
+      // router-link.item(to = "/editPoet")
         i.random.icon
         | 自訂小詩
       // router-link.item(to = "/editnews")
