@@ -12,7 +12,7 @@ npm run serve
 
 ### Compiles and minifies for production???
 ```
-npm run build --legacy-peer-deps
+sudo npm run build --legacy-peer-deps
 ```
 
 ### Lints and fixes files
