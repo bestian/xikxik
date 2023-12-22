@@ -7,7 +7,7 @@ sudo npm install --legacy-peer-deps
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+sudo npm run serve
 ```
 
 ### Compiles and minifies for production
@@ -17,7 +17,7 @@ sudo npm run build
 
 ### Lints and fixes files
 ```
-npm run lint
+sudo npm run lint
 ```
 
 ### Customize configuration
