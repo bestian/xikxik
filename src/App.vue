@@ -35,7 +35,7 @@
           iframe(src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fxikxik.bestian.tw&layout=button_count&size=small&appId=485195848253155&width=70&height=20" width="70" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
     #main
       router-view(:si="si", :xikxik = "$localStorage.xikxik", :newsList = "$localStorage.newsList", :poet = "$localStorage.poet", @add="add", @del = "del", @reset = "reset", @addNews="addNews", @delNews = "delNews", @resetNews = "resetNews", @addPoet="addPoet", @delPoet = "delPoet", @resetPoet = "resetPoet", @reseter="reseter")
-    ad
+    ad.fat-only
 </template>
 
 <script>
@@ -204,8 +204,10 @@ export default {
   },
   methods: {
     reseter: function () {
-      console.log('r')
-      this.$router.go()
+      console.log('r');
+      // 先捲到最上面
+      window.scrollTo(0, 0);
+      this.$router.go();
     },
     add: function (n, i) {
       this.addItem('xikxik', n, i)
