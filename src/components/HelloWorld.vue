@@ -7,12 +7,17 @@
           img(src="https://picsum.photos/400/200", alt="Lorem")
           hr
           .ui.list
+            .item
+              button.ui.circular.icon.button(@click="speakPoem()")
+                i.volume.up.icon
             .item(v-for = "(p, idx) in poet" v-bind:key = "p + idx")
               h2 {{ s(parse(p)) }}
         .ten.wide.column.left.aligned.ui.black.segment
           h1 小道小報 {{ today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() }}
           //InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
           h2 (本報訊)
+          button.ui.circular.icon.button(@click="speakNews()")
+            i.volume.up.icon
           .ui.bulleted.celled.list
             .item(v-for = "n in newsList" v-bind:key = "n")
               h3 {{ s(parse(n)) }}
@@ -21,7 +26,7 @@
           InArticleAdsense(data-ad-client="ca-pub-7209910540592367", data-ad-slot="8130621052")
       .one.column.row
         .column
-          a.ui.huge.black.button(@click = "reseter()") 再來！
+          a.ui.huge.black.button(@click = "reseter()") 再來一份小道小報
       .one.column.row
         .column
           .fb-comments(data-href="http://xikxik.bestian.tw" data-width="" data-numposts="5")
@@ -34,7 +39,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      today: new Date()
+      today: new Date(),
+      synth: window.speechSynthesis
     }
   },
   props: ['xikxik', 'newsList', 'poet', 'si'],
@@ -75,6 +81,32 @@ export default {
         return ans
       } else {
         return this.parse(ans)
+      }
+    },
+    speakNews() {
+      if (this.synth) {
+        const newsElements = document.querySelectorAll('.ui.bulleted.celled.list h3');
+        const fullNews = Array.from(newsElements)
+          .map(el => el.textContent.trim())
+          .join('，');
+        
+        const utterance = new SpeechSynthesisUtterance(fullNews);
+        utterance.lang = 'zh-TW';
+        utterance.rate = 0.8;
+        this.synth.speak(utterance);
+      }
+    },
+    speakPoem() {
+      if (this.synth) {
+        const poemElements = document.querySelectorAll('.six.wide.column h2');
+        const fullPoem = Array.from(poemElements)
+          .map(el => el.textContent.trim())
+          .join('，');
+        
+        const utterance = new SpeechSynthesisUtterance(fullPoem);
+        utterance.lang = 'zh-TW';
+        utterance.rate = 0.8;
+        this.synth.speak(utterance);
       }
     }
   }
