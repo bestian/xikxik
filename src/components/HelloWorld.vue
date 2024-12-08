@@ -85,6 +85,8 @@ export default {
     },
     speakNews() {
       if (this.synth) {
+        this.synth.cancel();
+
         const newsElements = document.querySelectorAll('.ui.bulleted.celled.list h3');
         const fullNews = Array.from(newsElements)
           .map(el => el.textContent.trim())
@@ -98,6 +100,8 @@ export default {
     },
     speakPoem() {
       if (this.synth) {
+        this.synth.cancel();
+
         const poemElements = document.querySelectorAll('.six.wide.column h2');
         const fullPoem = Array.from(poemElements)
           .map(el => el.textContent.trim())
