@@ -160,7 +160,7 @@ var dat = {
 
 var news = [
   '昨日per在place佈道，他說light',
-  '昨日per被指控在place放置adjobject，他鄭重否認。告密者per表示，他已有充份證據，將於num日後公諸於世。',
+  '昨日per被指控在place放置adjobject，他鄭重否認。告密者per表���，他已有充份證據，將於num日後公諸於世。',
   '昨日per宣稱，他和per在遺傳上是接近的。對方表示，這種說法純粹是為了要繼承adjobject。',
   '最近避不露面的per終於出現了，他對外表示，連續num日他都在placevi',
   '昨天per和per在place旁彼此vt。他們相互vt了num分鐘，最後決定一起vi',
@@ -207,7 +207,8 @@ export default {
       console.log('r');
       // 先捲到最上面
       window.scrollTo(0, 0);
-      this.$router.go();
+      // 再刷新
+      window.location.reload();
     },
     add: function (n, i) {
       this.addItem('xikxik', n, i)
